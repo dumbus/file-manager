@@ -4,7 +4,7 @@ import readline from 'node:readline/promises';
 
 import { printStartMessage, printEndMessage } from './utils/greeter.js';
 import { directoryStorage } from './utils/directoryStorage.js';
-import { readlink } from 'node:fs';
+import { isCommandCorrect } from './utils/validateCommand.js';
 
 const INVALID_INPUT_MESSAGE = 'Invalid input';
 const OPERATION_FAILED_MESSAGE = 'Operation failed';
@@ -26,7 +26,7 @@ rl.on('line', async (input) => {
     if (trimmedInput === '.exit') {
         rl.close();
     } else {
-        // handle user commands
+        console.log(isCommandCorrect(trimmedInput));
     }
 });
 
