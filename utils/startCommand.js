@@ -1,3 +1,5 @@
+import { up } from '../commands/up.js';
+
 const startCommand = async (command) => {
     const commandName = command.name;
     const commandArguments = command.arguments;

@@ -32,10 +32,11 @@ rl.on('line', async (input) => {
 
         if (isCommandPassedCorrect) {
             try {
-                // await startCommand(command);
-                console.log(`Executing command ${command.name}`);
-            } catch {
-                console.log(OPERATION_FAILED_MESSAGE);
+                await startCommand(command);
+                // console.log(`Executing command ${command.name}`);
+            } catch (e) {
+                // console.log(OPERATION_FAILED_MESSAGE);
+                console.log(e);
             }
         } else {
             console.log(INVALID_INPUT_MESSAGE);
