@@ -1,6 +1,7 @@
 import { homedir } from 'node:os';
 import { stdin as input, stdout as output } from 'node:process';
 import readline from 'node:readline/promises';
+import { getTypeOfInstance } from './utils/fsUtils.js';
 
 import { printStartMessage, printEndMessage } from './utils/messenger.js';
 import { directoryStorage } from './utils/directoryStorage.js';
@@ -34,6 +35,10 @@ rl.on('line', async (input) => {
             try {
                 await startCommand(command);
                 // console.log(`Executing command ${command.name}`);
+                const testDir = await getTypeOfInstance('/home/dumbu');
+                const testFile = await getTypeOfInstance('/home/dumbus/Desktop/NodeJS/file-manager/inde');
+                console.log(testDir);
+                console.log(testFile)
             } catch (e) {
                 // console.log(OPERATION_FAILED_MESSAGE);
                 console.log(e);
