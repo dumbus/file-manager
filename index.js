@@ -5,6 +5,7 @@ import readline from 'node:readline/promises';
 import { printStartMessage, printEndMessage } from './utils/greeter.js';
 import { directoryStorage } from './utils/directoryStorage.js';
 import { isCommandCorrect } from './utils/validateCommand.js';
+import { startCommand } from './utils/startCommand.js';
 
 const INVALID_INPUT_MESSAGE = 'Invalid input';
 const OPERATION_FAILED_MESSAGE = 'Operation failed';
