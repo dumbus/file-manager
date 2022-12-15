@@ -39,9 +39,7 @@ const isOsCommandCorrect = (command) => {
     return osArguments.includes(command.arguments[0])
 }
 
-const isCommandCorrect = (trimmedInput) => {
-    const command = parseCommand(trimmedInput);
-    
+const isCommandCorrect = (command) => {
     let isOsCommandCorrectResult = true;
     const isCommandExistsResult = isCommandExists(command);
     const isCommandArgumentsCorrectResult = isCommandArgumentsCorrect(command);
@@ -53,4 +51,4 @@ const isCommandCorrect = (trimmedInput) => {
     return isCommandExistsResult && isCommandArgumentsCorrectResult && isOsCommandCorrectResult;
 }
 
-export { isCommandCorrect };
+export { isCommandCorrect, parseCommand };

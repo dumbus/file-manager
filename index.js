@@ -4,7 +4,7 @@ import readline from 'node:readline/promises';
 
 import { printStartMessage, printEndMessage } from './utils/greeter.js';
 import { directoryStorage } from './utils/directoryStorage.js';
-import { isCommandCorrect } from './utils/validateCommand.js';
+import { isCommandCorrect, parseCommand } from './utils/validateCommand.js';
 import { startCommand } from './utils/startCommand.js';
 
 const INVALID_INPUT_MESSAGE = 'Invalid input';
@@ -27,7 +27,23 @@ rl.on('line', async (input) => {
     if (trimmedInput === '.exit') {
         rl.close();
     } else {
-        console.log(isCommandCorrect(trimmedInput));
+        const command = parseCommand(trimmedInput);
+        const isCommandPassedCorrect = isCommandCorrect(command);
+
+        if (isCommandPassedCorrect) {
+            try {
+                // await startCommand(command);
+                console.log(`Executing command ${command.name}`);
+            } catch {
+                console.log(OPERATION_FAILED_MESSAGE);
+            }
+        } else {
+            console.log(INVALID_INPUT_MESSAGE);
+        }
+
+        console.log(CURRENT_DIRECTORY_MESSAGE + directoryStorage.getCurrentDirectory());
+        
+        rl.prompt();
     }
 });
 
