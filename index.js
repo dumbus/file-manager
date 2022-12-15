@@ -35,10 +35,6 @@ rl.on('line', async (input) => {
             try {
                 await startCommand(command);
                 // console.log(`Executing command ${command.name}`);
-                const testDir = await getTypeOfInstance('/home/dumbu');
-                const testFile = await getTypeOfInstance('/home/dumbus/Desktop/NodeJS/file-manager/inde');
-                console.log(testDir);
-                console.log(testFile)
             } catch (e) {
                 // console.log(OPERATION_FAILED_MESSAGE);
                 console.log(e);

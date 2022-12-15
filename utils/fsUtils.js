@@ -7,7 +7,7 @@ const getAbsolutePath = async (path) => {
     const currentDirectory = directoryStorage.getCurrentDirectory();
     const isPathAbsolute = isAbsolute(path);
     
-    return isAbsolute ? path : join(currentDirectory, path);
+    return isPathAbsolute ? path : join(currentDirectory, path);
 };
 
 const getTypeOfInstance = async (path) => {
