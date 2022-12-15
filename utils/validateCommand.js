@@ -14,6 +14,8 @@ const commands = {
     'decompress': 2
 };
 
+const osArguments = ['--EOL', '--cpus', '--homedir', '--username', '--architecture'];
+
 const parseCommand = (trimmedInput) => {
     const splittedCommand = trimmedInput.split(' ');
 
@@ -33,13 +35,22 @@ const isCommandArgumentsCorrect = (command) => {
     return command.arguments.length === commands[command.name];
 }
 
+const isOsCommandCorrect = (command) => {
+    return osArguments.includes(command.arguments[0])
+}
+
 const isCommandCorrect = (trimmedInput) => {
     const command = parseCommand(trimmedInput);
     
+    let isOsCommandCorrectResult = true;
     const isCommandExistsResult = isCommandExists(command);
     const isCommandArgumentsCorrectResult = isCommandArgumentsCorrect(command);
 
-    return isCommandExistsResult && isCommandArgumentsCorrectResult;
+    if (command.name === 'os') {
+        isOsCommandCorrectResult = isOsCommandCorrect(command);
+    }
+
+    return isCommandExistsResult && isCommandArgumentsCorrectResult && isOsCommandCorrectResult;
 }
 
 export { isCommandCorrect };
