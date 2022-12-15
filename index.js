@@ -2,7 +2,7 @@ import { homedir } from 'node:os';
 import { stdin as input, stdout as output } from 'node:process';
 import readline from 'node:readline/promises';
 
-import { printStartMessage, printEndMessage } from './utils/greeter.js';
+import { printStartMessage, printEndMessage } from './utils/messenger.js';
 import { directoryStorage } from './utils/directoryStorage.js';
 import { isCommandCorrect, parseCommand } from './utils/validateCommand.js';
 import { startCommand } from './utils/startCommand.js';
