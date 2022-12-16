@@ -1,5 +1,5 @@
 import { up } from '../commands/up.js';
-// import { cd } from '../commands/cd.js';
+import { cd } from '../commands/cd.js';
 
 const startCommand = async (command) => {
     const commandName = command.name;

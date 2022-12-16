@@ -16,8 +16,30 @@ const commands = {
 
 const osArguments = ['--EOL', '--cpus', '--homedir', '--username', '--architecture'];
 
+const splitCommand = (trimmedInput) => {
+    let splittedCommand = '';
+    const argContainsSingleBracket = trimmedInput.includes(` '`);
+    const argContainsDoubleBracket = trimmedInput.includes(` "`);
+
+    if (argContainsSingleBracket) {
+        splittedCommand = trimmedInput.split(` '`);
+        for (let i = 1; i < splittedCommand.length; i++) {
+            splittedCommand[i] = splittedCommand[i].slice(0, splittedCommand[i].length - 1);
+        }
+    } else if (argContainsDoubleBracket) {
+        splittedCommand = trimmedInput.split(` "`);
+        for (let i = 1; i < splittedCommand.length; i++) {
+            splittedCommand[i] = splittedCommand[i].slice(0, splittedCommand[i].length - 1);
+        }
+    } else {
+        splittedCommand = trimmedInput.split(' ');
+    }
+
+    return splittedCommand;
+}
+
 const parseCommand = (trimmedInput) => {
-    const splittedCommand = trimmedInput.split(' ');
+    const splittedCommand = splitCommand(trimmedInput);
 
     const commandData = {
         name: splittedCommand[0],
