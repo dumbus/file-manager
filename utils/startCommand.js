@@ -5,7 +5,7 @@ import { cat } from '../commands/cat.js';
 import { add } from '../commands/add.js';
 import { rn } from '../commands/rn.js';
 import { cp } from '../commands/cp.js';
-
+import { mv } from '../commands/mv.js';
 import { rm } from '../commands/rm.js';
 
 const startCommand = async (command) => {
