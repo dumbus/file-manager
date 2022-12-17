@@ -3,6 +3,7 @@ import { cd } from '../commands/cd.js';
 import { ls } from '../commands/ls.js';
 import { cat } from '../commands/cat.js';
 import { add } from '../commands/add.js';
+import { rn } from '../commands/rn.js';
 
 const startCommand = async (command) => {
     const commandName = command.name;
