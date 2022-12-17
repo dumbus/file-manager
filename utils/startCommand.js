@@ -6,6 +6,8 @@ import { add } from '../commands/add.js';
 import { rn } from '../commands/rn.js';
 import { cp } from '../commands/cp.js';
 
+import { rm } from '../commands/rm.js';
+
 const startCommand = async (command) => {
     const commandName = command.name;
     const commandArguments = command.arguments;
