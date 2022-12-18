@@ -29,15 +29,14 @@ rl.on('line', async (input) => {
         rl.close();
     } else {
         const command = parseCommand(trimmedInput);
+        console.log(command);
         const isCommandPassedCorrect = isCommandCorrect(command);
 
         if (isCommandPassedCorrect) {
             try {
                 await startCommand(command);
-                // console.log(`Executing command ${command.name}`);
             } catch (e) {
-                // console.log(OPERATION_FAILED_MESSAGE);
-                console.log(e);
+                console.log(OPERATION_FAILED_MESSAGE);
             }
         } else {
             console.log(INVALID_INPUT_MESSAGE);

@@ -17,24 +17,49 @@ const commands = {
 const osArguments = ['--EOL', '--cpus', '--homedir', '--username', '--architecture'];
 
 const splitCommand = (trimmedInput) => {
-    let splittedCommand = '';
-    const argContainsSingleBracket = trimmedInput.includes(` '`);
-    const argContainsDoubleBracket = trimmedInput.includes(` "`);
+    let splittedCommand = [];
 
-    if (argContainsSingleBracket) {
-        splittedCommand = trimmedInput.split(` '`);
-        for (let i = 1; i < splittedCommand.length; i++) {
-            splittedCommand[i] = splittedCommand[i].slice(0, splittedCommand[i].length - 1);
+    let currentCommandPart = '';
+
+    let singleBracketFlag = 0;
+    let doubleBracketFlag = 0;
+
+    for (let i = 0; i < trimmedInput.length; i++) {
+        const currentSymbol = trimmedInput[i];
+
+        if (currentSymbol === ' ') {
+            if (!singleBracketFlag && !doubleBracketFlag) {
+                splittedCommand.push(currentCommandPart);
+                currentCommandPart = '';
+                continue;
+            } else if (singleBracketFlag === 2) {
+                splittedCommand.push(currentCommandPart);
+                currentCommandPart = '';
+                singleBracketFlag = 0;
+                continue;
+            } else if (doubleBracketFlag === 2) {
+                splittedCommand.push(currentCommandPart);
+                currentCommandPart = '';
+                doubleBracketFlag = 0;
+                continue;
+            }
         }
-    } else if (argContainsDoubleBracket) {
-        splittedCommand = trimmedInput.split(` "`);
-        for (let i = 1; i < splittedCommand.length; i++) {
-            splittedCommand[i] = splittedCommand[i].slice(0, splittedCommand[i].length - 1);
+
+        if (currentSymbol === `'`) {
+            singleBracketFlag += 1;
+            continue;
         }
-    } else {
-        splittedCommand = trimmedInput.split(' ');
+
+        if (currentSymbol === `"`) {
+            doubleBracketFlag += 1;
+            continue;
+        }
+
+        currentCommandPart += currentSymbol;
     }
 
+    splittedCommand.push(currentCommandPart);
+    
     return splittedCommand;
 }
 
