@@ -13,15 +13,10 @@ const cp = async (commandArguments) => {
     const isOldFileExists = (await getTypeOfInstance(absolutePathToFile) === 'file');
     const isNewDirectoryExists = (await getTypeOfInstance(absolutePathToNewDirectory) === 'directory');
 
-    // console.log(absolutePathToFile);
-    // console.log(absolutePathToNewDirectory);
-
     const fileName = basename(absolutePathToFile);
     const absolutePathToNewFile = await getAbsolutePath(join(absolutePathToNewDirectory, fileName));
 
     const isNewFileAbsent = (await getTypeOfInstance(absolutePathToNewFile) === 'absence');
-
-    // console.log(absolutePathToNewFile);
 
     if (isOldFileExists && isNewDirectoryExists && isNewFileAbsent) {
         const rs = createReadStream(absolutePathToFile);

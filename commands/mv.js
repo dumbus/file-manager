@@ -6,7 +6,7 @@ const mv = async (commandArguments) => {
     const pathToNewDirectory = commandArguments[1];
 
     await cp ([pathToFile, pathToNewDirectory]);
-    await rm (pathToFile);
+    await rm ([pathToFile]);
 };
 
 export { mv };
