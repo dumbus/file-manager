@@ -37,8 +37,9 @@ Assignment: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignm
 - `decompress path_to_file path_to_destination` decompress file *path_to_file* to *path_to_destination* folder
 
 ### Requirements for paths to files and directories
-> If your path contains files or directories with spaces in names, you should use quotes (single or doubled) - (' \ "):
+> If your path contains files or directories with spaces in names, you should use quotes (single or doubled) - ('|"):
 
 - `cp "/home/user/file with spaces" "/home/user/folder with spaces"` - OK
 - `cp '/home/user/file with spaces' '/home/user/folder with spaces'` - OK
+- `cp "/home/user/file with spaces" '/home/user/folder with spaces'` - OK
 - `cp /home/user/file with spaces /home/user/folder with spaces` - NOT OK
