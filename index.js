@@ -29,7 +29,6 @@ rl.on('line', async (input) => {
         rl.close();
     } else {
         const command = parseCommand(trimmedInput);
-        console.log(command);
         const isCommandPassedCorrect = isCommandCorrect(command);
 
         if (isCommandPassedCorrect) {
