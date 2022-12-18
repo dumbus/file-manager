@@ -10,6 +10,7 @@ import { rm } from '../commands/rm.js';
 import { os } from '../commands/os.js';
 import { hash } from '../commands/hash.js';
 import { compress } from '../commands/compress.js';
+import { decompress } from '../commands/decompress.js';
 
 const startCommand = async (command) => {
     const commandName = command.name;
