@@ -17,6 +17,7 @@ const cat = async (commandArguments) => {
             });
 
             rs.on('end', () => {
+                console.log('\r');
                 res();
             });
     
