@@ -44,7 +44,7 @@ Assignment: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignm
 - `cp "/home/user/file with spaces" '/home/user/folder with spaces'` - OK
 - `cp /home/user/file with spaces /home/user/folder with spaces` - NOT OK
 
-> If you want to switch to another disk in Windows, you should use name of disk with *:/*:
+> If you want to switch to another disk in Windows, you should use name of disk with `:/` :
 
 - `cd d:/` - OK
 - `cd c:/` - OK
