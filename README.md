@@ -1,6 +1,24 @@
-# File Manager
+## File Manager
 
-Assignment: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md
+Simple cli NodeJS file manager.
+
+[Assignment](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md)  
+[Scoring](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/score.md)
+
+## How to download and install application:
+
+### 1. Clone repository:
+```
+git clone https://github.com/dumbus/file-manager.git
+```
+### 2. Change active directory:
+```
+cd file-manager
+```
+### 3. Install dependencies:
+```
+npm install
+```
 
 ## How to run application:
 `npm run start -- --username=Your_Username`
